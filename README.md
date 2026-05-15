@@ -47,7 +47,7 @@ To comply with **Scopus and ScienceDirect Terms of Use**, we do not redistribute
 ## 🚀 Repository Contents & Code Usage
 
 ### 📁 Structure
-*   `CITRUS_CAI_PDM.ipynb`: Main Google Colab notebook for embedding and expert calibration.
+*   `CITRUS_Implementation.ipynb`: Main Google Colab notebook for embedding and expert calibration.
 *   `hsda_df_final.csv`: The final synthesized 101 papers (The Requirement Matrix).
 *   `cluster_orthogonality.csv`: Jaccard results proving thematic distinctness.
 
@@ -61,7 +61,7 @@ To comply with **Scopus and ScienceDirect Terms of Use**, we do not redistribute
 @article{suntoyo2026hsda,
   title={From Hierarchical Silence to Democratic AI: A Dual-Track Semantic Retrieval Protocol and Functional Design Matrix for Participative Conversational Agents},
   author={Suntoyo, Wisudanto C. and Sunitiyoso, Yos and Siallagan, Manahan and Hermawan, Pri},
-  journal={Technology in Society},
+  journal={Decision Analytics Journal},
   year={2026},
   publisher={Elsevier}
 }
