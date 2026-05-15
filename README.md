@@ -16,31 +16,49 @@ Traditional Systematic Literature Reviews (SLRs) often fall into a **"Lexical Tr
 
 To comply with **Scopus and ScienceDirect Terms of Use**, we do not redistribute the raw exploratory metadata ($n=27,326$). However, we provide the exact "recipe" below for full replication.
 
-### Track 1: Lexical Precision Baseline
+### Track 1: Deterministic Lexical Baseline (Precision-Oriented)
 
-**Scopus Query:**
+Track 1 establishes the precision baseline using high-fidelity Boolean strings to identify records that explicitly name the intersection of Conversational AI (CAI) and Participative Decision-Making (PDM). This track yielded **n=6 papers** as a high-fidelity anchor.
 
-`TITLE-ABS-KEY ( ( "Generative AI" OR "GenAI" OR "Large Language Model*" OR "LLM*" OR "ChatGPT" OR "Foundation Model*" OR "chatbot*" OR "conversational agent*" OR "conversational AI" OR "virtual assistant*" OR "dialog* system*" OR "virtual agent*" OR "Agentic AI" OR "Autonomous Agent*" OR "Silicon Sampling" OR "Synthetic Social Agent*" OR "Synthetic Data" ) AND ( ( ( "participat*" OR "shared" OR "Employee Voice") AND ( "DSS" OR "Decision Support Syste*" OR "Decision Making" ) ) ) ) AND NOT TITLE-ABS-KEY ( patient* OR clinic* OR health* OR medic* OR "federated learning" ) AND ( LIMIT-TO ( OA , "all" ) ) AND ( LIMIT-TO ( DOCTYPE , "ar" ) ) AND ( LIMIT-TO ( LANGUAGE , "English" ))`
+**Scopus Baseline Query (LEX1):**
 
-**ScienceDirect Query:**
+```
+TITLE-ABS-KEY ( ( "Generative AI" OR "GenAI" OR "Large Language Model*" OR "LLM*" OR "ChatGPT" OR "Foundation Model*" OR "chatbot*" OR "conversational agent*" OR "conversational AI" OR "virtual assistant*" OR "dialog* system*" OR "virtual agent*" OR "Agentic AI" OR "Autonomous Agent*" OR "Silicon Sampling" OR "Synthetic Social Agent*" OR "Synthetic Data" ) AND ( ( ( "participat*" OR "shared" OR "Employee Voice" ) AND ( "DSS" OR "Decision Support Syste*" OR "Decision Making" ) ) ) ) AND NOT TITLE-ABS-KEY ( patient* OR clinic* OR health* OR medic* OR edu* OR "public sector" OR travel ) AND ( LIMIT-TO ( DOCTYPE , "ar" ) )
+```
 
-`("Generative AI" OR "Conversational AI" OR "Chatbot") AND "Decision Making" AND (participative OR "Employee Voice") -patient -clinic -medical -hospital -travel -education -public -sector`
+**ScienceDirect Baseline Query (LEX2):**
 
-### Track 2: Semantic Discovery (High-Recall Pillars)
+```
+("Generative AI" OR "Conversational AI" OR "Chatbot") AND "Decision Making" AND ("Participative" OR "Employee Voice") -patient -clinic -medical -hospital -travel -education -public -sector
+```
 
-**Scopus C1 (GenAI + DSS):**
+### Track 2: Negotiated Semantic Discovery (Recall-Oriented)
 
-`TITLE-ABS-KEY ( ( "Generative AI" OR "GenAI" OR "Large Language Model*" OR "LLM*" OR "ChatGPT" OR "Foundation Model*" OR "chatbot*" OR "conversational agent*" OR "conversational AI" OR "virtual assistant*" OR "dialog* system*" OR "virtual agent*" OR "Agentic AI" OR "Autonomous Agent*" OR "Silicon Sampling" OR "Synthetic Social Agent*" OR "Synthetic Data" ) AND ( ( "DSS" OR "Decision Support Syste*" OR "Decision Making" ) ) ) AND ( LIMIT-TO ( OA , "all" ) ) AND ( LIMIT-TO ( DOCTYPE , "ar" ) ) AND ( LIMIT-TO ( LANGUAGE , "English" ) )`
+Track 2 acknowledges that relevant CAI-PDM interactions are often described using non-overlapping terminology. This track extracted a broad corpus of **n=27,326 unique records** from Scopus and ScienceDirect.
 
-**Scopus C2 (PDM + DSS):**
+**Scopus High-Recall Pillars:**
 
-`TITLE-ABS-KEY ( ( ( "participat*" OR "shared" OR "employee voice" ) AND ( "DSS" OR "Decision Support Syste*" OR "Decision Making" ) ) ) AND NOT TITLE-ABS-KEY ( patient* OR clinic* OR health* OR medic* OR "federated learning" ) AND ( LIMIT-TO ( OA , "all" ) ) AND ( LIMIT-TO ( DOCTYPE , "ar" ) ) AND ( LIMIT-TO ( LANGUAGE , "English" ) ) AND PUBYEAR > 2022`
+*   **C1 (PDM + DSS):**
+    ```
+    TITLE-ABS-KEY ( ( "participat*" OR "shared" OR "employee voice" ) AND ( "DSS" OR "Decision Support Syste*" OR "Decision Making" ) ) AND NOT TITLE-ABS-KEY ( patient* OR clinic* OR health* OR medic* OR "public sector" ) AND ( LIMIT-TO ( DOCTYPE , "ar" ) )
+    ```
 
-**ScienceDirect Queries (SD1-SD4):**
-*   **SD1:** `("Generative AI" OR "Large Language Model" OR ChatGPT OR "Foundation Model") AND (participatory OR participative) AND ("Decision Making" OR DSS)`
-*   **SD2:** `(chatbot OR "Agentic AI" OR "Autonomous Agent" OR "Silicon Sampling" OR "Synthetic Data") AND (participatory OR participative) AND ("Decision Making" OR DSS)`
-*   **SD3:** `("Generative AI" OR chatbot OR "Agentic AI") AND "Employee Voice" AND ("Decision Making" OR DSS)`
-*   **SD4:** `("Generative AI" OR chatbot OR LLM) AND "Shared Decision Making" AND ("Decision Making" OR DSS)`
+*   **C2 (PDM + DSS - Duplicate for verification):**
+    ```
+    TITLE-ABS-KEY ( ( "participat*" OR "shared" OR "employee voice" ) AND ( "DSS" OR "Decision Support Syste*" OR "Decision Making" ) ) AND NOT TITLE-ABS-KEY ( patient* OR clinic* OR health* OR medic* OR "public sector" ) AND ( LIMIT-TO ( DOCTYPE , "ar" ) )
+    ```
+
+**ScienceDirect High-Recall Pillars:**
+
+*   **SD1 (GenAI + Decision Making):**
+    ```
+    ("Generative AI" OR "Conversational AI") AND ("Decision Making" OR DSS) -patient -clinic -medical -hospital -travel -education -public -sector
+    ```
+
+*   **SD2 (PDM + Decision Making):**
+    ```
+    (Participative OR "Employee Voice") AND ("Decision Making" OR "Decision Support" OR "DSS") -patient -clinic -medical -hospital -travel -education -public -sector
+    ```
 
 ---
 
