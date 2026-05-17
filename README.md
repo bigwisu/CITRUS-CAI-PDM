@@ -73,14 +73,3 @@ Track 2 acknowledges that relevant CAI-PDM interactions are often described usin
 1.  **Extract:** Use the strings above to export results from Scopus/ScienceDirect.
 2.  **Embed:** Open the notebook, enter your Gemini API Key, and generate the `citrus_df`.
 3.  **Negotiate:** Use the interactive Plotly UI to find the **"Semantic Knee"** and truncate your harvest.
-
-## 📝 Citation
-```bibtex
-@article{suntoyo2026hsda,
-  title={From Hierarchical Silence to Democratic AI: A Dual-Track Semantic Retrieval Protocol and Functional Design Matrix for Participative Conversational Agents},
-  author={Suntoyo, Wisudanto C. and Sunitiyoso, Yos and Siallagan, Manahan and Hermawan, Pri},
-  journal={Decision Analytics Journal},
-  year={2026},
-  publisher={Elsevier}
-}
-```
